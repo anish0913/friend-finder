@@ -215,7 +215,7 @@
     <hr>
     <footer class="footer">
         <div class="container">
-            <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/afhaque/friendfinder">GitHub
+            <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/anish0913/friend-finder">GitHub
                     Repo</a></p>
         </div>
     </footer>
@@ -242,7 +242,7 @@
                 return validForm;
             };
             if(validation() === true) {
-                var newFriend = {
+                var newBuddy = {
                     name: $("#name").val().trim(),
                     photo: $("#photo").val().trim(),
                     scores: [
@@ -258,7 +258,7 @@
                         $("#q10").val(),
                     ]
                 }
-                $.post("/api/friends", newFriend, function (data) {
+                $.post("/api/friends", newBuddy, function (data) {
                     $("#bestFriend").text(data.name);
                     $("#bestFriendPhoto").attr("src", data.photo);
                     $("#bestFriendModal").modal("toggle");
@@ -267,7 +267,7 @@
                 $("#name, #photo, #q1, #q2, #q3, #q4, #q5, #q6, #q7, #q8, #q9, #q10").val("");
             } else {
                 // If a required field is missing, show alert
-                alert("Survey is incomplete!");
+                $("#emptySurvey").modal("toggle");
             };
         });
     </script>
